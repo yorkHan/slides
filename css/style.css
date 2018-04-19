@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.window{
+    width: 700px;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.images{
+    display: flex;
+    position: relative;
+}
+.images>img{
+    position: absolute;
+    width: 100%;
+    transition: all 0.5s;
+}
+.images>img.current{
+    left: 0;
+    transform: translate(0);
+    z-index: 1;
+}
+.images>img.leave{
+    transform: translate(-100%);
+    z-index: 1;
+}
+.images>img.enter{
+    transform: translate(100%);
+    
+}
