@@ -1,12 +1,26 @@
 let n
 innt.call()
-setInterval(function () {
+var timer=setInterval(function () {
     mkLeave($(getImg(n))).one('transitionend',function (e) {
      mkEnter($(e.currentTarget)) 
     })
     mkCurrent($(getImg(n+1)))
     n++
 },3000)
+
+document.addEventListener('visibilitychange',function () {
+    if(document.hidden){
+        window.clearInterval(timer)
+    }else{
+        timer=setInterval(function () {
+            mkLeave($(getImg(n))).one('transitionend',function (e) {
+             mkEnter($(e.currentTarget)) 
+            })
+            mkCurrent($(getImg(n+1)))
+            n++
+        },3000)
+    }
+})
 
 function x(n){
     if(n>3){
